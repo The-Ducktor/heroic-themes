@@ -1,8 +1,11 @@
 /* Variables */
 body.fluent {
+  /* Text Colors */
   --text-default: #bebebe;
   --text-secondary: #c3eeff;
   --text-tertiary: #11111b;
+
+  /* Background Colors */
   --background: #333;
   --background-darker: #202020;
   --background-lighter: #454545;
@@ -18,10 +21,14 @@ body.fluent {
   --osk-button-border: #11111b;
   --search-bar-background: #323232;
   --search-bar-border: #323232;
+
+  /* Icon Colors */
   --action-icon: #fff;
   --action-icon-hover: #49aae5;
   --action-icon-active: #40bdff;
   --icons-background: #2b2b2b;
+
+  /* Button Colors */
   --primary-button: #40bdff;
   --primary-button-overlay: #383838;
   --secondary-button: #49aae5;
@@ -31,12 +38,18 @@ body.fluent {
   --success-button: #61bf84;
   --disabled-button: #202020;
   --disabled-button-overlay: #11111b;
+
+  /* Navbar Colors */
   --navbar-active: #40bdff;
   --navbar-inactive: #fff;
   --navbar-active-background: #323232;
   --navbar-accent: #49aae5;
   --navbar-background: #202020;
+
+  /* Divider Colors */
   --divider: #202020;
+
+  /* Status Colors */
   --success: #61bf84;
   --success-hover: #94e2d5;
   --danger: #bebebe;
@@ -48,16 +61,23 @@ body.fluent {
   --status-warning: #bebebe;
   --status-danger: #c91f37;
   --status-info: #40bdff;
+
+  /* Neutral Colors */
   --neutral-01: #11111b;
   --neutral-02: #202020;
   --neutral-03: #323232;
   --neutral-04: #49aae5;
   --neutral-05: #bebebe;
   --neutral-06: #fff;
+
+  /* Brand Colors */
   --brand-secondary: #323232;
   --accent-overlay: var(--action-icon-active);
-/* additonal testing */
+
+  /* Icon Font Family */
   --font-family-icons: "Segoe Fluent Icons";
+
+  /* Icon Content */
   --icon-forward: "\E72A";
   --icon-back: "\E72B";
   --icon-refresh: "\E72C";
@@ -95,13 +115,17 @@ body.fluent {
   --icon-storage: "\EDA2";
   --icon-remove: "\ECC9";
   --icon-more: "\E712";
-  
-  
 }
+
+/* Back Button */
 .backButton {
   color: white !important;
   background-color: transparent !important;
+  display: inline-block;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Exponential curve for zoom-in effect */
 }
+
 .backButton > svg {
   display: none;
 }
@@ -113,6 +137,28 @@ body.fluent {
   border-radius: 5px;
 }
 
+.backButton:hover::before {
+  background-color: transparent;
+}
+
+.backButton:hover {
+  transform: scale(0.8); /* Zoom out on hover */
+}
+
+.backButton:active {
+  animation: zoomOutAnimation 0.5s ease-in-out; /* Apply the zoom-out animation on click */
+}
+
+@keyframes zoomOutAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+/* Button with Icon */
 .buttonWithIcon:has(svg[data-testid=PauseIcon])::before {
   content: var(--icon-pause-solid);
 }
@@ -121,23 +167,25 @@ body.fluent {
 .buttonWithIcon:has(svg[data-testid=DownloadIcon])::before {
   content: var(--icon-download);
 }
+
+/* Circle */
 circle {
   color: rgba(0, 0, 0, 0.3) !important;
   visibility: hidden;
 }
 
-
+/* Store Icon */
 svg.store-icon {
   background-color: rgba(0, 0, 0, 0.3) !important; /* Transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
 }
-.backButton:hover::before {
-  background-color: transparent;
-}
 
+/* Icons */
 span.icons {
   color: transparent;
 }
+
+/* Game Card */
 .gameCard>.icons>.playIcon {
   background-color: var(--success);
   color: var(--success-button);
@@ -150,7 +198,7 @@ span.icons {
   justify-self: flex-end;
 }
 
-
+/* Game Config Container */
 .gameConfigContainer {
   background-color: transparent;
 }
@@ -223,7 +271,8 @@ button:hover {
 .Sidebar__item:hover {
   width: 200px;
 }
-/* search bar stuff */
+
+/* Search Bar */
 .SearchBar {
   padding: 2; /* Remove padding for the SearchBar */
   border-radius: 4px;
@@ -242,29 +291,6 @@ button:hover {
 button.selectStyle {
   height: 40px;
   box-shadow: none !important;
-}
-
-.backButton {
-  display: inline-block;
-  overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Exponential curve for zoom-in effect */
-}
-
-.backButton:hover {
-  transform: scale(0.8); /* Zoom out on hover */
-}
-
-.backButton:active {
-  animation: zoomOutAnimation 0.5s ease-in-out; /* Apply the zoom-out animation on click */
-}
-
-@keyframes zoomOutAnimation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.8);
-  }
 }
 
 /* Main dialog container */
